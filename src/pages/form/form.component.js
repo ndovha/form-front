@@ -44,7 +44,7 @@ export default class FormComponent extends React.Component {
 
   handleSend = async() => { 
     const { name, email, message } = this.state;
-    const url = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000/';
+    const url = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000/api/feedback';
     const nameErrorKey = validate(name.value, name.validationList);    
     const emailErrorKey = validate(email.value, email.validationList);
     const messageErrorKey = validate(message.value, message.validationList);
@@ -66,7 +66,7 @@ export default class FormComponent extends React.Component {
          }));      
        }
       try{
-        await axios.post('http://localhost:5000/api/feedback', {
+        await axios.post(url, {
         name: name.value,
         email: email.value,
         message: message.value,
