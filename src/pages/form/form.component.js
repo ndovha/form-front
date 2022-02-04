@@ -44,7 +44,7 @@ export default class FormComponent extends React.Component {
 
   handleSend = async() => { 
     const { name, email, message } = this.state;
-
+    const url = REACT_APP_API_BASE_URL || 'http://localhost:3000/';
     const nameErrorKey = validate(name.value, name.validationList);    
     const emailErrorKey = validate(email.value, email.validationList);
     const messageErrorKey = validate(message.value, message.validationList);
